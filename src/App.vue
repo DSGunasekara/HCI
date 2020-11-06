@@ -1,19 +1,19 @@
 <template>
   <v-app>
     <v-main  class="main">
-      <NavBar/>
+<!--      <NavBar/>-->
       <router-view></router-view>
     </v-main>
   </v-app>
 </template>
 
 <script>
-import NavBar from "@/components/NavBar";
+// import NavBar from "@/components/NavBar";
 export default {
   name: 'App',
 
   components: {
-    NavBar
+    // NavBar
   },
 
   data: () => ({
