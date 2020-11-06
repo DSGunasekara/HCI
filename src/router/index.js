@@ -2,6 +2,7 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Home from '../views/Home.vue'
 import Withdraw from "@/views/Withdraw";
+import TransactionComplete from "@/views/TransactionComplete";
 
 Vue.use(VueRouter)
 
@@ -15,6 +16,11 @@ const routes = [
     path: '/withdraw',
     name: 'Withdraw',
     component: Withdraw
+  },
+  {
+    path: '/complete',
+    name: 'Complete',
+    component: TransactionComplete
   },
   {
     path: '/about',
