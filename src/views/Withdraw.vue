@@ -25,28 +25,28 @@
         <h1>Rs: {{ amount.join("") }}</h1>
       </div>
     </div>
-    <v-row style="margin-left: 300px">
+    <v-row style="margin-left: 200px">
       <v-col v-for="i in numberList" :key="i" class="ma-2" md="3">
         <v-btn
           @click="addValue(i)"
           color="#3498db"
           dark
           x-large
-          width="300px"
+          width="200px"
           height="65px"
         >
           {{ i }}
         </v-btn>
       </v-col>
     </v-row>
-    <v-row style="margin-left: 300px">
+    <v-row style="margin-left: 200px">
       <v-col class="ma-2" md="3">
         <v-btn
           @click="delNumber"
           color="error"
           dark
           x-large
-          width="300px"
+          width="200px"
           height="65px"
         >
           del
@@ -58,7 +58,7 @@
           color="#3498db"
           dark
           x-large
-          width="300px"
+          width="200px"
           height="65px"
         >
           0
@@ -70,7 +70,7 @@
           color="error"
           dark
           x-large
-          width="300px"
+          width="200px"
           height="65px"
         >
           clear

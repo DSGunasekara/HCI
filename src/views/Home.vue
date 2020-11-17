@@ -6,8 +6,8 @@
         <br>
         <h2>Move your face to move the cursor <v-icon x-large color="#1abc9c" class="pl-4 pb-3 heading">mdi-face</v-icon> </h2>
         <h2>Lift right hand to choose <v-icon x-large color="#1abc9c" class="pl-4 pb-3 heading">mdi-hand-right</v-icon> </h2>
-        <h2>Point Right to Continue <v-icon x-large color="#1abc9c" class="pl-4 pb-3 heading">mdi-hand-pointing-right</v-icon> </h2>
-        <h2>Point Left to get back <v-icon x-large color="#1abc9c" class="pl-4 pb-3 heading">mdi-hand-pointing-left</v-icon> </h2>
+<!--        <h2>Point Right to Continue <v-icon x-large color="#1abc9c" class="pl-4 pb-3 heading">mdi-hand-pointing-right</v-icon> </h2>-->
+<!--        <h2>Point Left to get back <v-icon x-large color="#1abc9c" class="pl-4 pb-3 heading">mdi-hand-pointing-left</v-icon> </h2>-->
       </div>
     </div>
     <v-row justify="center">
