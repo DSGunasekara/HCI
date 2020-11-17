@@ -9,6 +9,7 @@
         <h1>Date: {{ new Date().toISOString().substr(0, 10) }}</h1>
         <br>
         <v-btn text dark class="green darken-1" @click="goHome">Go Home</v-btn>
+        <v-btn text dark class="green darken-1 ml-5" @click="goWithdraw">Withdraw More</v-btn>
       </div>
     </div>
   </div>
@@ -25,6 +26,9 @@ export default {
   methods:{
     goHome(){
       this.$router.push('/');
+    },
+    goWithdraw(){
+      this.$router.push('/withdraw')
     }
   }
 };

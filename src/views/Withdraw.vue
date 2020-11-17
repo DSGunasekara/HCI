@@ -19,7 +19,8 @@
     <div class="displayArea">
       <div class="greet">
         <h1 style="color: #e53935">{{ errMsg }}</h1>
-        <h1>Hello, {{ name }} ....</h1>
+        <h1>Hello, {{ getUserDetails.name }} ....</h1>
+        <h1 class="grey--text">Available Balance: {{ getUserDetails.balance }}</h1>
         <h1 class="grey--text">Enter the amount to withdraw</h1>
         <br />
         <h1>Rs: {{ amount.join("") }}</h1>
@@ -66,7 +67,7 @@
       </v-col>
       <v-col class="ma-2" md="3">
         <v-btn
-          @click="amount = []"
+          @click="clearValue"
           color="error"
           dark
           x-large
@@ -81,6 +82,7 @@
 </template>
 
 <script>
+import { mapGetters, mapActions } from 'vuex'
 // import NavBar from "@/components/NavBar";
 export default {
   name: "Withdraw",
@@ -89,7 +91,8 @@ export default {
   },
   data() {
     return {
-      name: "A.D.S.Gunasekara",
+      name: "",
+      balance: '',
       amount: [],
       numberList: [7, 8, 9, 4, 5, 6, 1, 2, 3],
       loading: false,
@@ -97,6 +100,7 @@ export default {
     };
   },
   methods: {
+    ...mapActions(['updateBalance']),
     addValue(i) {
       this.errMsg = "";
       this.amount.push(i);
@@ -104,20 +108,30 @@ export default {
     delNumber() {
       this.amount.pop();
     },
+    clearValue(){
+      this.amount = []
+      this.errMsg = ''
+    },
     async submitValue() {
       this.loading = true;
       const amount = this.amount.join("");
-      if (amount) {
-        console.log(amount);
-        // await new Promise((r) => setTimeout(r, 2000));
+      if(amount > this.getUserDetails.balance || !amount){
+        this.loading = false;
+        this.errMsg = "Please enter a valid amount and try again";
+      }else if (amount) {
+        let balance = this.getUserDetails.balance - amount;
+        console.log(balance);
+        await this.updateBalance(balance)
         this.loading = false;
         this.$store.commit("setAmount", amount);
         await this.$router.push("/complete");
       }
-      this.loading = false;
-      this.errMsg = "Please enter a valid amount and try again";
+
     },
   },
+  computed:{
+    ...mapGetters(["getUserDetails"])
+  }
 };
 </script>
 

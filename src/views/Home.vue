@@ -2,7 +2,7 @@
   <div class="container">
     <div class="displayArea">
       <div class="greet">
-        <h1>Hello, {{ name }} ....</h1>
+        <h1>Hello, {{ getUserDetails.name }} ....</h1>
         <br>
         <h2>Move your face to move the cursor <v-icon x-large color="#1abc9c" class="pl-4 pb-3 heading">mdi-face</v-icon> </h2>
         <h2>Lift right hand to choose <v-icon x-large color="#1abc9c" class="pl-4 pb-3 heading">mdi-hand-right</v-icon> </h2>
@@ -39,15 +39,25 @@
 
 <script>
 // @ is an alias to /src
+import { mapActions, mapGetters } from 'vuex'
 
 export default {
   name: 'Home',
   components: {
   },
+  methods:{
+    ...mapActions(["getUser"])
+  },
+  computed:{
+    ...mapGetters(["getUserDetails"])
+  },
   data(){
     return{
       name: 'A.D.S.Gunasekara'
     }
+  },
+  created() {
+    this.getUser()
   }
 }
 </script>
