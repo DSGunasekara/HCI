@@ -1,6 +1,6 @@
 <template>
   <div class="container">
-    <div class="displayArea">
+    <div class="displayArea" style="margin-top: 150px">
       <div class="greet">
         <h1>Hello, {{ getUserDetails.name }} ....</h1>
         <br>
@@ -10,26 +10,26 @@
 <!--        <h2>Point Left to get back <v-icon x-large color="#1abc9c" class="pl-4 pb-3 heading">mdi-hand-pointing-left</v-icon> </h2>-->
       </div>
     </div>
-    <v-row justify="center">
+    <v-row justify="center" style="margin-top: 50px">
       <v-col md="1">
-        <v-btn color="#3498db" dark x-large width="300px" height="100px" style="margin-left: -300px" router to="/withdraw">
+        <v-btn color="#3498db" dark x-large width="300px" height="100px" style="margin-left: -270px" router to="/withdraw">
           Withdraw
         </v-btn>
       </v-col>
       <v-col md="1">
-        <v-btn color="#3498db" dark x-large width="300px" height="100px" style="margin-left: 200px" router to="/about">
+        <v-btn color="#3498db" dark x-large width="300px" height="100px" style="margin-left: 45px" router to="/about">
           Deposit
         </v-btn>
       </v-col>
     </v-row>
     <v-row justify="center">
       <v-col md="1">
-        <v-btn color="#3498db" dark x-large width="300px" height="100px" style="margin-left: -300px">
+        <v-btn color="#3498db" dark x-large width="300px" height="100px" style="margin-left: -270px">
           Transfer & Payment
         </v-btn>
       </v-col>
       <v-col md="1">
-        <v-btn color="#3498db" dark x-large width="300px" height="100px" style="margin-left: 200px">
+        <v-btn color="#3498db" dark x-large width="300px" height="100px" style="margin-left: 45px">
           Balance Inquiry
         </v-btn>
       </v-col>
@@ -66,11 +66,13 @@ export default {
   .displayArea{
     background: #fff;
     border-radius: 10px;
-    height: 450px;
-    width: 80%;
+    height: 350px;
+    width: 62%;
     margin: auto;
   }
   .greet{
+    text-align: left;
+    margin-left:-200px;
     padding-top: 50px;
     padding-left: 300px;
   }

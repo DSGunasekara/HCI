@@ -1,25 +1,9 @@
 <template>
   <div class="container">
-    <v-row justify="center">
-      <v-col md="1">
-        <v-btn x-large text class="red darken-1" dark router to="/">Back</v-btn>
-      </v-col>
-      <v-col md="1">
-        <v-btn
-          x-large
-          text
-          class="green darken-1"
-          dark
-          @click="submitValue"
-          :loading="loading"
-          >Next</v-btn
-        >
-      </v-col>
-    </v-row>
     <div class="displayArea">
       <div class="greet">
         <h1 style="color: #e53935">{{ errMsg }}</h1>
-        <h1>Hello, {{ getUserDetails.name }} ....</h1>
+        <h1>Hello, {{ getUserDetails.name }} ...</h1>
         <h1 class="grey--text">Available Balance: {{ getUserDetails.balance }}</h1>
         <h1 class="grey--text">Enter the amount to withdraw</h1>
         <br />
@@ -76,6 +60,23 @@
         >
           clear
         </v-btn>
+      </v-col>
+    </v-row>
+    <v-row justify="center">
+      <v-col>
+        <v-btn x-large text style="width: 300px;margin-left: 220px; height: 65px" class="red darken-1" dark router to="/">Back</v-btn>
+      </v-col>
+      <v-col>
+        <v-btn
+            x-large
+            text
+            class="green darken-1"
+            dark
+            style="width: 300px; margin-left: 50px; height: 65px"
+            @click="submitValue"
+            :loading="loading"
+        >Withdraw</v-btn
+        >
       </v-col>
     </v-row>
   </div>
@@ -139,8 +140,12 @@ export default {
 .displayArea {
   background: #fff;
   border-radius: 10px;
-  height: 450px;
-  width: 80%;
+  height: 350px;
+  width: 62%;
   margin: auto;
+}
+.greet{
+  margin-left:-200px;
+  text-align: left;
 }
 </style>
