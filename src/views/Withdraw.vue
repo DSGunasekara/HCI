@@ -67,16 +67,63 @@
         <v-btn x-large text style="width: 300px;margin-left: 220px; height: 65px" class="red darken-1" dark router to="/">Back</v-btn>
       </v-col>
       <v-col>
-        <v-btn
-            x-large
-            text
-            class="green darken-1"
-            dark
-            style="width: 300px; margin-left: 50px; height: 65px"
-            @click="submitValue"
-            :loading="loading"
-        >Withdraw</v-btn
+<!--        <v-btn-->
+<!--            x-large-->
+<!--            text-->
+<!--            class="green darken-1"-->
+<!--            dark-->
+<!--            style="width: 300px; margin-left: 50px; height: 65px"-->
+<!--            @click="submitValue"-->
+<!--            :loading="loading"-->
+<!--        >Withdraw</v-btn-->
+<!--        >-->
+        <v-dialog
+            v-model="dialog"
+            persistent
+            max-width="800"
         >
+          <template v-slot:activator="{ attrs }">
+            <v-btn
+                x-large
+                text
+                class="green darken-1"
+                dark
+                style="width: 300px; margin-left: 50px; height: 65px"
+                v-bind="attrs"
+                @click="submitValue"
+            >
+              Withdraw
+            </v-btn>
+          </template>
+          <v-card>
+            <v-card-title class="headline">
+              Confirm Withdraw <br><br>Are you sure you want withdraw <br> Rs: {{ amount.join("") }}.00/=
+            </v-card-title>
+<!--            <v-card-text>Let Google help apps determine location. This means sending anonymous location data to Google, even when no apps are running.</v-card-text>-->
+            <v-card-actions style="padding-bottom: 50px; padding-top: 50px">
+<!--              <v-spacer></v-spacer>-->
+              <v-btn
+                  x-large
+                  dark
+                  style="width: 300px; margin-left: 50px; height: 65px; background-color: #E53935"
+                  text
+                  @click="dialog = false"
+              >
+                Cancel
+              </v-btn>
+              <v-btn
+                  x-large
+                  dark
+                  style="width: 300px; margin-left: 50px; height: 65px; background-color: #43A047"
+                  text
+                  :loading="loading"
+                  @click="confirm"
+              >
+                Confirm
+              </v-btn>
+            </v-card-actions>
+          </v-card>
+        </v-dialog>
       </v-col>
     </v-row>
   </div>
@@ -98,6 +145,7 @@ export default {
       numberList: [7, 8, 9, 4, 5, 6, 1, 2, 3],
       loading: false,
       errMsg: "",
+      dialog:false,
     };
   },
   methods: {
@@ -113,22 +161,24 @@ export default {
       this.amount = []
       this.errMsg = ''
     },
-    async submitValue() {
-      this.loading = true;
+    submitValue() {
       const amount = this.amount.join("");
       if(amount > this.getUserDetails.balance || !amount){
-        this.loading = false;
         this.errMsg = "Please enter a valid amount and try again";
       }else if (amount) {
-        let balance = this.getUserDetails.balance - amount;
-        console.log(balance);
-        await this.updateBalance(balance)
-        this.loading = false;
-        this.$store.commit("setAmount", amount);
-        await this.$router.push("/complete");
+        this.dialog = true;
       }
-
     },
+    async confirm(){
+      this.loading = true;
+      const amount = this.amount.join("");
+      let balance = this.getUserDetails.balance - amount;
+      console.log(balance);
+      await this.updateBalance(balance)
+      this.$store.commit("setAmount", amount);
+      this.loading = false
+      await this.$router.push("/complete");
+    }
   },
   computed:{
     ...mapGetters(["getUserDetails"])
