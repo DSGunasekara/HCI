@@ -8,8 +8,9 @@
         <h1>Amount Rs: {{ getAmount }}</h1>
         <h1>Date: {{ new Date().toISOString().substr(0, 10) }}</h1>
         <br>
-        <v-btn text dark class="green darken-1" @click="goHome">Go Home</v-btn>
-        <v-btn text dark class="green darken-1 ml-5" @click="goWithdraw">Withdraw More</v-btn>
+        <v-btn x-large text dark class="green darken-1" @click="goHome">Go Home</v-btn>
+        <v-btn x-large text dark class="green darken-1 ml-5" @click="goWithdraw">Withdraw More</v-btn>
+        <v-btn x-large text dark class="red darken-1 ml-5" @click="logout">Logout</v-btn>
       </div>
     </div>
   </div>
@@ -25,10 +26,13 @@ export default {
   },
   methods:{
     goHome(){
-      this.$router.push('/');
+      this.$router.push('/home');
     },
     goWithdraw(){
       this.$router.push('/withdraw')
+    },
+    logout(){
+      this.$router.push('/')
     }
   }
 };

@@ -2,6 +2,7 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Home from '../views/Home.vue'
 import Withdraw from "@/views/Withdraw";
+import Login from "@/views/Login";
 import TransactionComplete from "@/views/TransactionComplete";
 
 Vue.use(VueRouter)
@@ -9,6 +10,11 @@ Vue.use(VueRouter)
 const routes = [
   {
     path: '/',
+    name: 'Login',
+    component: Login
+  },
+  {
+    path: '/home',
     name: 'Home',
     component: Home
   },

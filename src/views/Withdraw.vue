@@ -64,19 +64,9 @@
     </v-row>
     <v-row justify="center">
       <v-col>
-        <v-btn x-large text style="width: 300px;margin-left: 220px; height: 65px" class="red darken-1" dark router to="/">Back</v-btn>
+        <v-btn x-large text style="width: 300px;margin-left: 220px; height: 65px" class="red darken-1" dark router to="/home">Back</v-btn>
       </v-col>
       <v-col>
-<!--        <v-btn-->
-<!--            x-large-->
-<!--            text-->
-<!--            class="green darken-1"-->
-<!--            dark-->
-<!--            style="width: 300px; margin-left: 50px; height: 65px"-->
-<!--            @click="submitValue"-->
-<!--            :loading="loading"-->
-<!--        >Withdraw</v-btn-->
-<!--        >-->
         <v-dialog
             v-model="dialog"
             persistent
